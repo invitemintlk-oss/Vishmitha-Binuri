@@ -76,7 +76,7 @@ export default function CreativeImageSection({ imageSrc, altText, overlayText }:
       {/* Monogram Watermark */}
       <div className="absolute bottom-10 right-10 z-20 opacity-20 hidden md:block">
         <img 
-          src="/Screenshot 2026-05-08 031308.png" 
+          src="/vb-monogram.png" 
           alt="Monogram" 
           className="h-20 w-20 object-contain invert brightness-200" 
         />

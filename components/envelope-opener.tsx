@@ -55,7 +55,7 @@ export function EnvelopeOpener({ onEnvelopeOpen, guestName }: EnvelopeOpenerProp
           className="fixed inset-0 z-50 overflow-hidden"
         >
           {/* Lighter Background */}
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(216,183,140,0.15),transparent_40%),linear-gradient(135deg,#faf9f6_0%,#f5f3ef_38%,#fdfcfb_65%,#faf9f6_100%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(216,183,140,0.15),transparent_40%),linear-gradient(135deg,#f6e4e0_0%,#efd6d0_38%,#f3e3d4_65%,#ead2bd_100%)]" />
 
           {/* Soft ambient glow */}
           <motion.div
@@ -186,7 +186,7 @@ export function EnvelopeOpener({ onEnvelopeOpen, guestName }: EnvelopeOpenerProp
                 <span className="h-px w-12 bg-gradient-to-l from-transparent to-[#d8b78c]/70" />
               </div>
               <h1 className="font-script text-2xl md:text-6xl tracking-[0.05em] text-[#8c6a16] capitalize">
-                Nipuni <span className="text-secondary/80">&amp;</span> Ravindu
+                Vishmitha <span className="text-secondary/80">&amp;</span> Binuri
               </h1>
             </motion.div>
 
@@ -198,14 +198,14 @@ export function EnvelopeOpener({ onEnvelopeOpen, guestName }: EnvelopeOpenerProp
               className="relative"
             >
               <motion.div
-                className="absolute -inset-8 -z-20 rounded-[3rem] bg-[conic-gradient(from_90deg_at_50%_50%,rgba(181,197,122,0.0),rgba(181,197,122,0.2),rgba(181,197,122,0.0),rgba(181,197,122,0.18),rgba(181,197,122,0.0))] blur-2xl"
+                className="absolute -inset-8 -z-20 rounded-[3rem] bg-[conic-gradient(from_90deg_at_50%_50%,rgba(201,154,107,0.0),rgba(201,154,107,0.2),rgba(201,154,107,0.0),rgba(201,154,107,0.18),rgba(201,154,107,0.0))] blur-2xl"
                 animate={{ rotate: 360 }}
                 transition={{ duration: 24, repeat: Infinity, ease: 'linear' }}
               />
 
               {/* Outer aura */}
               <motion.div
-                className="absolute inset-0 -z-10 rounded-[2.5rem] bg-[#d8b78c]/10 blur-3xl"
+                className="absolute inset-0 -z-10 rounded-[2.5rem] bg-[#c98f8f]/20 blur-3xl"
                 animate={{
                   scale: [1, 1.08, 1],
                   opacity: [0.55, 0.8, 0.55],
@@ -235,8 +235,8 @@ export function EnvelopeOpener({ onEnvelopeOpen, guestName }: EnvelopeOpenerProp
                   className="relative z-10"
                 >
                   <img
-                    src="/ChatGPT_Image_May_8__2026__03_11_04_AM-removebg-preview.png"
-                    alt="Wedding Envelope"
+                    src="/envelope-rose-gold.png"
+                    alt="Vishmitha & Binuri wedding envelope"
                     className="w-[450px] h-auto drop-shadow-[0_20px_50px_rgba(0,0,0,0.3)]"
                   />
                 </motion.div>

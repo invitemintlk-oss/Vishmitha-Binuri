@@ -5,16 +5,16 @@
 
 /* Premium Sri Lankan Kandyan Wedding Theme */
 :root {
-  /* Primary Colors - Pink & Green Theme */
-  --theme-gold: #d8b78c;
-  --theme-gold-light: #d9d1c6;
-  --theme-sage: #9eaa94;
-  --theme-sage-muted: #9c9f98;
-  --theme-ivory: #e8e8e6;
+  /* Dull Pink & Antique Gold Theme */
+  --theme-gold: #9c7442;        /* antique gold (deepened for legibility) */
+  --theme-gold-light: #e6cfae;
+  --theme-sage: #985a68;        /* dusty rose (deepened for legibility) */
+  --theme-sage-muted: #d8b4b4;
+  --theme-ivory: #f9f1ee;       /* blush ivory */
   --white: #FFFFFF;
-  --text-dark: #3a3b38;
-  --text-muted: #71736e;
-  --border-light: #d9d1c6;
+  --text-dark: #3d2b2d;         /* warm cocoa */
+  --text-muted: #8a7171;
+  --border-light: #ead5cf;
   
   /* Design System Mappings */
   --background: var(--theme-ivory);
@@ -40,9 +40,9 @@
 }
 
 @theme inline {
-  --font-sans: 'Inter', 'Inter Fallback';
-  --font-serif: 'Playfair Display', 'Playfair Display Fallback';
-  --font-script: 'Pinyon Script', 'cursive';
+  --font-sans: var(--font-inter), 'Inter', sans-serif;
+  --font-serif: var(--font-cinzel), 'Cinzel', 'Trajan Pro', serif;
+  --font-script: var(--font-pinyon), 'Pinyon Script', cursive;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -218,4 +218,21 @@
 
 .scroll-smooth {
   scroll-behavior: smooth;
+}
+
+/* Rose-gold shimmer on highlighted heading words */
+h2 span.text-primary {
+  background: linear-gradient(120deg, #8f4f5c 0%, #a87a45 45%, #9c7442 60%, #8f4f5c 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: rose-gold-shimmer 6s ease-in-out infinite;
+}
+@keyframes rose-gold-shimmer {
+  0%, 100% { background-position: 0% center; }
+  50% { background-position: 100% center; }
+}
+@media (prefers-reduced-motion: reduce) {
+  h2 span.text-primary { animation: none; }
 }

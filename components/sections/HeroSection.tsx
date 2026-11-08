@@ -16,12 +16,12 @@ export default function HeroSection() {
         initial={{ scale: 1.1 }}
         animate={inView ? { scale: 1 } : {}}
         transition={{ duration: 15, ease: "easeOut" }}
-        className="absolute inset-0 bg-cover bg-[center_25%] sm:bg-center bg-no-repeat"
-        style={{ backgroundImage: 'url(/images/whatsapp_photo_1.jpeg)' }}
+        className="absolute inset-0 bg-cover bg-[center_30%] bg-no-repeat"
+        style={{ backgroundImage: 'url(/pre/story-3.jpeg)' }}
       />
 
       {/* Dark Premium Overlay */}
-      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.4)_0%,rgba(0,0,0,0.6)_60%,rgba(0,0,0,0.85)_100%)]" />
+      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(20,14,10,0.35)_0%,rgba(20,14,10,0.45)_50%,rgba(20,14,10,0.88)_100%)]" />
 
 
 
@@ -30,44 +30,45 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 1 }}
-          className="mb-8 inline-flex items-center gap-4 rounded-full border border-primary/30 bg-white/5 px-6 py-2.5 backdrop-blur-xl"
+          className="mb-8 inline-flex items-center gap-4 rounded-full border border-[#ecd5b0]/40 bg-white/5 px-6 py-2.5 backdrop-blur-xl"
         >
-          <div className="h-px w-8 bg-primary/50" />
-          <span className="text-xs font-bold uppercase tracking-[0.5em] text-primary">
-            Wedding Ceremony
+          <div className="h-px w-8 bg-[#ecd5b0]/60" />
+          <span className="text-xs font-bold uppercase tracking-[0.5em] text-[#ecd5b0]">
+            We Are Getting Married
           </span>
-          <div className="h-px w-8 bg-primary/50" />
+          <div className="h-px w-8 bg-[#ecd5b0]/60" />
         </motion.div>
 
         <motion.h1
           initial={{ opacity: 0, y: 40 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 1.2, delay: 0.1 }}
-          className="font-serif text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-bold tracking-tight leading-[1.1] bg-gradient-to-b from-[#f3e3c0] via-[#C9A227] to-[#8d6e1d] bg-clip-text text-transparent drop-shadow-[0_4px_4px_rgba(0,0,0,0.25)]"
+          className="font-script text-7xl sm:text-8xl md:text-9xl leading-[1.05] bg-gradient-to-b from-[#f3e3c0] via-[#d8b78c] to-[#a8823a] bg-clip-text text-transparent drop-shadow-[0_4px_6px_rgba(0,0,0,0.35)] px-4"
         >
-          NIPUNI <span className="text-white italic opacity-80">&amp;</span> <br className="sm:hidden" />
-          RAVINDU
+          Vishmitha
+          <span className="block text-3xl sm:text-4xl md:text-5xl text-white/85 my-1 sm:my-2" style={{ WebkitTextFillColor: 'rgba(255,255,255,0.85)' }}>and</span>
+          Binuri
         </motion.h1>
 
         <motion.p
           initial={{ opacity: 0, y: 24 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 1, delay: 0.3 }}
-          className="mt-8 max-w-2xl text-xs sm:text-sm leading-relaxed text-white/70 uppercase tracking-[0.2em] font-medium"
+          className="mt-8 max-w-2xl text-xs sm:text-sm leading-relaxed text-white/90 uppercase tracking-[0.2em] font-medium"
         >
-          Sharing our beautiful journey with love and grace
+          Together with our families, we joyfully invite you to celebrate our wedding
         </motion.p>
 
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={inView ? { opacity: 1, scale: 1 } : {}}
           transition={{ duration: 1.2, delay: 0.45 }}
-          className="mt-12 rounded-3xl border border-white/10 bg-white/5 p-8 md:p-10 backdrop-blur-2xl shadow-[0_20px_50px_rgba(0,0,0,0.3)] group hover:border-primary/30 transition-all duration-500"
+          className="mt-12 rounded-3xl border border-white/10 bg-white/5 p-8 md:p-10 backdrop-blur-2xl shadow-[0_20px_50px_rgba(0,0,0,0.3)] group hover:border-[#ecd5b0]/40 transition-all duration-500"
         >
           <div className="flex flex-col items-center">
-             <p className="text-[10px] uppercase tracking-[0.6em] text-primary font-bold mb-4 opacity-70 group-hover:opacity-100 transition-opacity">Save the Date</p>
+             <p className="text-[10px] uppercase tracking-[0.6em] text-[#ecd5b0] font-bold mb-4 opacity-70 group-hover:opacity-100 transition-opacity">Save the Date</p>
              <h2 className="font-serif text-3xl text-white sm:text-5xl tracking-wide">
-               FRIDAY <span className="text-primary mx-2">31</span> JULY 2026
+               WEDNESDAY <span className="text-[#ecd5b0] mx-2">30</span> DECEMBER 2026
              </h2>
              <div className="mt-6 flex items-center gap-6 text-white/40">
                 <div className="h-px w-12 bg-white/20" />

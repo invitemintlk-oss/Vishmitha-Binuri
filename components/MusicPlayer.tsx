@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const SONG_SRC = '/mata-denna-lobai-gajindu-fonseka-pranirsha-thiyagaraja.mp3';
+const SONG_SRC = '/cant-help-falling-in-love.mp3';
 
 export default function MusicPlayer() {
     const audioRef = useRef<HTMLAudioElement | null>(null);
@@ -103,9 +103,9 @@ export default function MusicPlayer() {
                 onClick={toggle}
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
-                className="pointer-events-auto relative w-14 h-14 rounded-full flex items-center justify-center shadow-[0_10px_30px_rgba(158,170,148,0.4)] border-2 border-white group"
+                className="pointer-events-auto relative w-14 h-14 rounded-full flex items-center justify-center shadow-[0_10px_30px_rgba(176,117,131,0.4)] border-2 border-white group"
                 style={{
-                    background: 'linear-gradient(135deg, #9eaa94 0%, #8b9783 100%)',
+                    background: 'linear-gradient(135deg, #c48b95 0%, #b8915a 100%)',
                 }}
                 aria-label={isPlaying ? 'Pause music' : 'Play music'}
             >
@@ -168,7 +168,7 @@ export default function MusicPlayer() {
                 <motion.div
                     animate={isPlaying ? { scale: [1, 1.5, 1], opacity: [0.8, 1, 0.8] } : { scale: 1 }}
                     transition={{ duration: 1.5, repeat: Infinity }}
-                    className={`absolute top-0 right-0 w-3 h-3 rounded-full border-2 border-white ${isPlaying ? 'bg-green-400' : 'bg-red-400'}`}
+                    className={`absolute top-0 right-0 w-3 h-3 rounded-full border-2 border-white ${isPlaying ? 'bg-[#e6cfae]' : 'bg-[#a8636f]'}`}
                 />
             </motion.button>
         </div>

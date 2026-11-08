@@ -16,21 +16,21 @@ export default function CeremonyDetails() {
       key: 'poruwa',
       title: 'Poruwa Ceremony',
       timeLabel: 'Ceremony Time',
-      timeValue: '8:30 AM',
+      timeValue: '9:34 AM',
       timeSub: 'Traditional Sri Lankan Ceremony',
       venueLabel: 'Venue',
-      venueValue: 'OUTDOOR DECK, WATERS EDGE',
-      venueSub: '316, ETHUL KOTTE RD, BATTARAMULLA',
+      venueValue: 'KINGS COURT, CINNAMON LAKESIDE',
+      venueSub: 'CINNAMON LAKESIDE HOTEL, COLOMBO',
     },
     {
       key: 'reception',
       title: 'Wedding Reception',
       timeLabel: 'Reception Time',
-      timeValue: '10:00 AM - 4:00 PM',
+      timeValue: '9:00 AM - 3:00 PM',
       timeSub: 'Grand Celebration & Dining',
       venueLabel: 'Venue',
-      venueValue: 'GRAND BALLROOM, WATERS EDGE',
-      venueSub: '316, ETHUL KOTTE RD, BATTARAMULLA',
+      venueValue: 'KINGS COURT, CINNAMON LAKESIDE',
+      venueSub: 'CINNAMON LAKESIDE HOTEL, COLOMBO',
     },
   ];
 
@@ -127,7 +127,7 @@ export default function CeremonyDetails() {
               >
                 <div className="absolute right-0 top-0 opacity-15">
                   <img
-                    src="/Screenshot 2026-05-08 031308.png"
+                    src="/vb-monogram.png"
                     alt="Monogram"
                     className="w-32 h-32 -mt-8 -mr-8 object-contain"
                   />

@@ -1,33 +1,33 @@
 import type { Metadata, Viewport } from 'next'
-import { Playfair_Display, Inter, Pinyon_Script } from 'next/font/google'
+import { Cinzel, Inter, Pinyon_Script } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 import './enhancements.css'
 
-const playfairDisplay = Playfair_Display({
+const cinzel = Cinzel({
   subsets: ["latin"],
   weight: ['400', '500', '600', '700'],
-  variable: '--font-serif'
+  variable: '--font-cinzel'
 })
 
 const inter = Inter({
   subsets: ["latin"],
-  variable: '--font-sans'
+  variable: '--font-inter'
 })
 
 const pinyonScript = Pinyon_Script({
   subsets: ["latin"],
   weight: ['400'],
-  variable: '--font-script'
+  variable: '--font-pinyon'
 })
 
 export const metadata: Metadata = {
-  title: 'NIPUNI & RAVINDU Wedding',
-  description: 'Join us as we celebrate the wedding of NIPUNI and RAVINDU on July 31, 2026.',
+  title: 'VISHMITHA & BINURI Wedding',
+  description: 'Join us as we celebrate the wedding of VISHMITHA and BINURI on December 30, 2026.',
   generator: 'v0.app',
   icons: {
-    icon: '/Screenshot 2026-05-08 031308.png',
-    apple: '/Screenshot 2026-05-08 031308.png',
+    icon: '/vb-monogram.png',
+    apple: '/vb-monogram.png',
   },
 }
 
@@ -44,7 +44,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${playfairDisplay.variable} ${inter.variable} ${pinyonScript.variable}`}>
+    <html lang="en" className={`${cinzel.variable} ${inter.variable} ${pinyonScript.variable}`}>
       <body className="font-sans antialiased">
         {children}
         <Analytics />

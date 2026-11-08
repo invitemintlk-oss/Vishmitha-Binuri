@@ -18,7 +18,7 @@ export default function CountdownSection() {
     triggerOnce: true,
   });
 
-  const targetDate = useMemo(() => new Date('2026-07-31T08:30:00').getTime(), []);
+  const targetDate = useMemo(() => new Date('2026-12-30T09:34:00').getTime(), []);
 
   const getTimeLeft = (): TimeLeft => {
     const now = new Date().getTime();
@@ -65,7 +65,7 @@ export default function CountdownSection() {
   return (
     <section
       ref={ref}
-      className="relative overflow-hidden bg-white px-4 py-24 sm:px-6 lg:px-8 md:py-32"
+      className="relative overflow-hidden bg-[linear-gradient(180deg,#fbf3f1_0%,#f3dfdb_100%)] px-4 py-24 sm:px-6 lg:px-8 md:py-32"
     >
       {/* Premium Atmosphere */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
@@ -159,9 +159,22 @@ export default function CountdownSection() {
             </span>
           </h2>
 
-          <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-[#7a5f57] sm:text-lg">
-            Every second brings us closer to our blessed wedding day. We cannot wait to celebrate this grace-filled moment with you.
-          </p>
+          <div className="mx-auto mt-10 max-w-2xl">
+            <p className="font-script text-4xl text-primary md:text-5xl">Save the Date</p>
+            <p className="mt-3 font-serif text-2xl uppercase tracking-[0.15em] text-foreground md:text-4xl">
+              Wednesday, 30<sup className="text-sm">th</sup> December 2026
+            </p>
+            <div className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2">
+              <div className="rounded-2xl border border-primary/30 bg-white/70 px-5 py-4">
+                <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-secondary">Wedding</p>
+                <p className="mt-1 font-serif text-xl text-foreground">9.00 AM – 3.00 PM</p>
+              </div>
+              <div className="rounded-2xl border border-primary/30 bg-white/70 px-5 py-4">
+                <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-secondary">Poruwa Ceremony</p>
+                <p className="mt-1 font-serif text-xl text-foreground">9.34 AM</p>
+              </div>
+            </div>
+          </div>
         </motion.div>
 
         <div className="rounded-[2rem] border border-[#e7c5a0]/40 bg-white/55 p-4 shadow-[0_20px_70px_rgba(177,120,84,0.18)] backdrop-blur-xl sm:p-6 md:p-8">

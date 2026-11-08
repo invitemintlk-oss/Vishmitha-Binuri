@@ -59,7 +59,7 @@ export default function RSVPSection({ guestName }: { guestName?: string }) {
   return (
     <section
       ref={ref}
-      className="relative overflow-hidden bg-white px-4 sm:px-6 lg:px-8 py-24 md:py-32"
+      className="relative overflow-hidden bg-[linear-gradient(180deg,#fbf3f1_0%,#f3dfdb_100%)] px-4 sm:px-6 lg:px-8 py-24 md:py-32"
     >
       {/* Premium Ambient Backdrop */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
@@ -100,7 +100,7 @@ export default function RSVPSection({ guestName }: { guestName?: string }) {
           >
             <div className="relative flex h-full w-full items-center justify-center rounded-full bg-white overflow-hidden">
               <img
-                src="/Screenshot 2026-05-08 031308.png"
+                src="/vb-monogram.png"
                 alt="Monogram"
                 className="w-full h-full object-contain p-2"
               />
@@ -139,9 +139,9 @@ export default function RSVPSection({ guestName }: { guestName?: string }) {
               </motion.svg>
             </span>
           </h2>
-          <p className="mx-auto mt-8 max-w-lg text-lg text-[#7b6259] leading-relaxed">
-            Please respond by 10.07.2026. <br />
-            <span className="font-bold text-[#bf7752]">Ravindu | Nipuni</span>
+          <p className="mx-auto mt-8 max-w-lg text-lg text-[#5a4244] leading-relaxed">
+            Kindly RSVP: <a href="tel:+94714779960" className="hover:underline">071 477 9960</a> / <a href="tel:+94714442833" className="hover:underline">071 444 2833</a> <br />
+            <span className="font-bold text-[#bf7752]">Vishmitha | Binuri</span>
           </p>
         </motion.div>
 
@@ -155,7 +155,7 @@ export default function RSVPSection({ guestName }: { guestName?: string }) {
           {/* Animated Background Envelope Flap Shape */}
           <div className="absolute -top-10 left-1/2 h-32 w-[90%] -translate-x-1/2 rounded-[2rem] bg-white/30 blur-md pointer-events-none" />
 
-          <div className="relative overflow-hidden rounded-[3rem] border border-secondary/25 bg-white p-6 md:p-12 shadow-[0_20px_55px_rgba(181,197,122,0.15)] backdrop-blur-2xl">
+          <div className="relative overflow-hidden rounded-[3rem] border border-secondary/25 bg-white p-6 md:p-12 shadow-[0_20px_55px_rgba(176,117,131,0.15)] backdrop-blur-2xl">
             {/* Corner Decor */}
             <div className="absolute top-0 right-0 w-32 h-32 md:w-56 md:h-56 pointer-events-none z-0 opacity-95">
               <img src="/images/44.png" alt="" className="w-full h-full object-contain object-top-right" />
@@ -232,7 +232,7 @@ export default function RSVPSection({ guestName }: { guestName?: string }) {
                       onHoverEnd={() => setIsHoveringSubmit(false)}
                       type="submit"
                       disabled={isSubmitting}
-                      className="group relative inline-flex items-center justify-center gap-4 overflow-hidden rounded-full bg-secondary px-12 py-5 text-white shadow-[0_10px_30px_rgba(181,197,122,0.38)] transition-all hover:bg-secondary/90 hover:shadow-[0_15px_40px_rgba(181,197,122,0.45)] border border-secondary"
+                      className="group relative inline-flex items-center justify-center gap-4 overflow-hidden rounded-full bg-secondary px-12 py-5 text-white shadow-[0_10px_30px_rgba(176,117,131,0.38)] transition-all hover:bg-secondary/90 hover:shadow-[0_15px_40px_rgba(176,117,131,0.45)] border border-secondary"
                     >
                       <span className="relative z-10 font-bold tracking-[0.2em] uppercase text-sm">
                         {isSubmitting ? 'Sending...' : 'Send RSVP'}
@@ -280,7 +280,7 @@ export default function RSVPSection({ guestName }: { guestName?: string }) {
                   <h3 className="font-serif text-4xl font-medium text-[#4a3b3c] mb-4">
                     Yay! We got it
                   </h3>
-                  <p className="max-w-md text-lg text-[#7b6259]">
+                  <p className="max-w-md text-lg text-[#5a4244]">
                     Thank you so much for confirming, {formData.name || 'dear guest'}! We are so excited to celebrate with you.
                   </p>
                 </motion.div>

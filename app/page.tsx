@@ -4,21 +4,21 @@ import { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { EnvelopeOpener } from '@/components/envelope-opener';
 import HeroSection from '@/components/sections/HeroSection';
-import PersonalizedWelcome from '@/components/sections/PersonalizedWelcome';
+import IntroVideo from '@/components/sections/IntroVideo';
+import OurStory from '@/components/sections/OurStory';
+import PreShootGallery from '@/components/sections/PreShootGallery';
 import ParentsSection from '@/components/sections/ParentsSection';
-
-import CeremonyDetails from '@/components/sections/CeremonyDetails';
 import CountdownSection from '@/components/sections/CountdownSection';
-
 import VenueLocation from '@/components/sections/VenueLocation';
-import RSVPSection from '@/components/sections/RSVPSection';
+import DressCode from '@/components/sections/DressCode';
+import SeatingSection from '@/components/sections/SeatingSection';
 import BlessingsSection from '@/components/sections/BlessingsSection';
+import RSVPSection from '@/components/sections/RSVPSection';
 import FooterSection from '@/components/sections/FooterSection';
-import SimpleImageSection from '@/components/sections/SimpleImageSection';
 import MusicPlayer from '@/components/MusicPlayer';
 
 function HomeContent() {
-  const [isOpened, setIsOpened] = useState(false);
+  const [stage, setStage] = useState<'envelope' | 'intro' | 'site'>('envelope');
   const searchParams = useSearchParams();
 
   const guestName = searchParams.get('to');
@@ -35,26 +35,27 @@ function HomeContent() {
       {/* Persistent floating music player */}
       <MusicPlayer />
 
-      {!isOpened ? (
+      {stage === 'envelope' && (
         <EnvelopeOpener
-          onEnvelopeOpen={() => setIsOpened(true)}
+          onEnvelopeOpen={() => setStage('intro')}
           guestName={personalizedName}
         />
-      ) : (
+      )}
+
+      {stage === 'intro' && <IntroVideo onFinish={() => setStage('site')} />}
+
+      {stage === 'site' && (
         <>
           <HeroSection />
-          <PersonalizedWelcome guestName={personalizedName} />
+          <OurStory />
+          <PreShootGallery />
           <ParentsSection />
-
-          <CeremonyDetails />
-          <SimpleImageSection imageSrc="/1.jpeg" />
           <CountdownSection />
-          <SimpleImageSection imageSrc="/2.jpeg" />
-
           <VenueLocation />
-          <RSVPSection guestName={personalizedName} />
-          <SimpleImageSection imageSrc="/3.jpeg" objectPosition="object-bottom" useFullImage />
+          <DressCode />
+          <SeatingSection />
           <BlessingsSection />
+          <RSVPSection guestName={personalizedName} />
           <FooterSection />
         </>
       )}

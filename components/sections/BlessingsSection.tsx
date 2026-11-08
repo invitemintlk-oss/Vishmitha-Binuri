@@ -77,7 +77,7 @@ export default function BlessingsSection() {
   return (
     <section
       ref={ref}
-      className="relative overflow-hidden bg-[linear-gradient(180deg,#ffffff_0%,#fff5f6_45%,#ffeff1_100%)] px-4 py-24 sm:px-6 lg:px-8 md:py-32"
+      className="relative overflow-hidden bg-[linear-gradient(165deg,#f3e0dc_0%,#ecd3c6_50%,#e3c9a8_100%)] px-4 py-24 sm:px-6 lg:px-8 md:py-32"
     >
       {/* Corner Decor */}
       <div className="absolute top-0 right-0 w-40 h-40 md:w-72 md:h-72 pointer-events-none z-0 opacity-95">

@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { ExternalLink, MapPin, Navigation, Sparkles } from 'lucide-react';
 
-const LOCATION_URL = 'https://www.google.com/maps/search/?api=1&query=Waters+Edge+Battaramulla+Sri+Lanka';
+const LOCATION_URL = 'https://www.google.com/maps/search/?api=1&query=Cinnamon+Lakeside+Colombo+Sri+Lanka';
 
 export default function VenueLocation() {
   const { ref, inView } = useInView({ threshold: 0.2, triggerOnce: true });
@@ -12,7 +12,7 @@ export default function VenueLocation() {
   return (
     <section
       ref={ref}
-      className="relative overflow-hidden bg-white px-4 py-24 sm:px-6 lg:px-8 md:py-32"
+      className="relative overflow-hidden bg-[linear-gradient(180deg,#faf3ea_0%,#efdfc8_100%)] px-4 py-24 sm:px-6 lg:px-8 md:py-32"
     >
       {/* Atmosphere */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
@@ -85,9 +85,20 @@ export default function VenueLocation() {
               <MapPin className="h-10 w-10 text-white" />
             </div>
 
-            <p className="mt-6 text-[11px] font-bold uppercase tracking-[0.4em] text-primary/60 mb-3">Grand Ballroom</p>
-            <h3 className="font-serif text-4xl md:text-5xl text-foreground font-semibold mb-4 uppercase">WATERS EDGE</h3>
-            <p className="text-sm text-foreground/50 mb-10 uppercase tracking-[0.2em] leading-relaxed max-w-sm mx-auto">316, Ethul Kotte Rd, <br /> Battaramulla, Sri Lanka</p>
+            <p className="mt-6 text-[11px] font-bold uppercase tracking-[0.4em] text-primary mb-3">Kings Court</p>
+            <h3 className="font-serif text-4xl md:text-5xl text-foreground font-semibold mb-4 uppercase">CINNAMON LAKESIDE HOTEL</h3>
+            <p className="text-sm text-foreground/80 mb-10 uppercase tracking-[0.2em] leading-relaxed max-w-sm mx-auto">115 Sir Chittampalam A. Gardiner Mawatha, <br /> Colombo 02, Sri Lanka</p>
+
+            <div className="mb-8 overflow-hidden rounded-2xl border border-primary/20 shadow-inner">
+              <iframe
+                title="Cinnamon Lakeside Colombo map"
+                src="https://www.google.com/maps?q=Cinnamon+Lakeside+Colombo&output=embed"
+                className="h-72 w-full md:h-96"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                allowFullScreen
+              />
+            </div>
 
             <a
               href={LOCATION_URL}
