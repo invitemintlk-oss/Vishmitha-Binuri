@@ -21,14 +21,14 @@ const phases = [
     title: ['Once', 'Upon a Time'],
     sub: 'Little hearts',
     position: 'object-[center_35%]',
-    gray: true,
+    gray: false,
   },
   {
     img: '/pre/story-2.jpeg',
     title: ['The Journey', 'Brought Us Here'],
     sub: 'Side by side',
     position: 'object-[center_30%]',
-    gray: true,
+    gray: false,
   },
   {
     img: '/pre/story-3.jpeg',
