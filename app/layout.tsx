@@ -1,23 +1,29 @@
 import type { Metadata, Viewport } from 'next'
-import { Cinzel, Inter, Pinyon_Script } from 'next/font/google'
+import localFont from 'next/font/local'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 import './enhancements.css'
 
-const cinzel = Cinzel({
-  subsets: ["latin"],
-  weight: ['400', '500', '600', '700'],
+// Fonts are self-hosted (downloaded from Google Fonts) so the build never
+// depends on fetching from Google, which was breaking Turbopack on Vercel.
+const cinzel = localFont({
+  src: './fonts/cinzel-latin.woff2',
+  weight: '400 900',
+  display: 'swap',
   variable: '--font-cinzel'
 })
 
-const inter = Inter({
-  subsets: ["latin"],
+const inter = localFont({
+  src: './fonts/inter-latin.woff2',
+  weight: '100 900',
+  display: 'swap',
   variable: '--font-inter'
 })
 
-const pinyonScript = Pinyon_Script({
-  subsets: ["latin"],
-  weight: ['400'],
+const pinyonScript = localFont({
+  src: './fonts/pinyon-script-latin.woff2',
+  weight: '400',
+  display: 'swap',
   variable: '--font-pinyon'
 })
 
