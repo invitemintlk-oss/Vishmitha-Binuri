@@ -7,13 +7,21 @@ import { Send, Heart, Mail, User, Users, Coffee, Sparkles } from 'lucide-react';
 import { submitToGoogleSheets } from '@/lib/googleSheets';
 import { useCoupleOrder } from '@/lib/couple-order';
 
-// RSVP contacts, groom first then bride.
-const GROOM_PHONE = { tel: '+94714779960', label: '071 477 9960' };
-const BRIDE_PHONE = { tel: '+94714442833', label: '071 444 2833' };
+// RSVP contacts for each side. A guest only sees the side that invited them.
+const RSVP_CONTACTS = {
+  groom: [
+    { name: 'Vishmitha', tel: '+94714779960', label: '071 477 9960' },
+    { name: 'Niranjan', tel: '+94714442833', label: '071 444 2833' },
+  ],
+  bride: [
+    { name: 'Binuri', tel: '+94717444848', label: '071 744 4848' },
+    { name: 'Dilruk', tel: '+94714214846', label: '071 421 4846' },
+  ],
+} as const;
 
 export default function RSVPSection({ guestName }: { guestName?: string }) {
-  const { first, second, order, side } = useCoupleOrder();
-  const phones = order(GROOM_PHONE, BRIDE_PHONE);
+  const { side } = useCoupleOrder();
+  const contacts = RSVP_CONTACTS[side];
   const { ref, inView } = useInView({ threshold: 0.15, triggerOnce: true });
   const [formData, setFormData] = useState({
     name: guestName || '',
@@ -148,10 +156,16 @@ export default function RSVPSection({ guestName }: { guestName?: string }) {
               </motion.svg>
             </span>
           </h2>
-          <p className="mx-auto mt-8 max-w-lg text-lg text-[#5a4244] leading-relaxed">
-            Kindly RSVP: <a href={`tel:${phones[0].tel}`} className="hover:underline">{phones[0].label}</a> / <a href={`tel:${phones[1].tel}`} className="hover:underline">{phones[1].label}</a> <br />
-            <span className="font-bold text-[#bf7752]">{first} | {second}</span>
-          </p>
+          <div className="mx-auto mt-8 max-w-lg text-lg text-[#5a4244] leading-relaxed">
+            <p>Kindly RSVP:</p>
+            <div className="mt-3 flex flex-col items-center justify-center gap-2 sm:flex-row sm:gap-8">
+              {contacts.map((c) => (
+                <a key={c.tel} href={`tel:${c.tel}`} className="hover:underline">
+                  {c.label} <span className="font-bold text-[#bf7752]">({c.name})</span>
+                </a>
+              ))}
+            </div>
+          </div>
         </motion.div>
 
         {/* 3D Glassmorphic Form Container */}
