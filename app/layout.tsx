@@ -40,13 +40,13 @@ export const metadata: Metadata = {
     title: 'VISHMITHA & BINURI Wedding',
     description: 'Join us as we celebrate the wedding of VISHMITHA and BINURI on December 30, 2026.',
     type: 'website',
-    images: [{ url: '/og-image.jpg', width: 1200, height: 1200, alt: 'Vishmitha & Binuri' }],
+    images: [{ url: '/og-invitation.jpg', width: 1200, height: 1200, alt: 'Vishmitha & Binuri' }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'VISHMITHA & BINURI Wedding',
     description: 'Join us as we celebrate the wedding of VISHMITHA and BINURI on December 30, 2026.',
-    images: ['/og-image.jpg'],
+    images: ['/og-invitation.jpg'],
   },
   icons: {
     icon: '/vb-monogram.png',
