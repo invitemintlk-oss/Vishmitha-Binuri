@@ -27,10 +27,27 @@ const pinyonScript = localFont({
   variable: '--font-pinyon'
 })
 
+const siteUrl = process.env.VERCEL_PROJECT_PRODUCTION_URL
+  ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+  : 'http://localhost:3000'
+
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: 'VISHMITHA & BINURI Wedding',
   description: 'Join us as we celebrate the wedding of VISHMITHA and BINURI on December 30, 2026.',
   generator: 'v0.app',
+  openGraph: {
+    title: 'VISHMITHA & BINURI Wedding',
+    description: 'Join us as we celebrate the wedding of VISHMITHA and BINURI on December 30, 2026.',
+    type: 'website',
+    images: [{ url: '/og-image.jpg', width: 1200, height: 1200, alt: 'Vishmitha & Binuri' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'VISHMITHA & BINURI Wedding',
+    description: 'Join us as we celebrate the wedding of VISHMITHA and BINURI on December 30, 2026.',
+    images: ['/og-image.jpg'],
+  },
   icons: {
     icon: '/vb-monogram.png',
     apple: '/vb-monogram.png',
