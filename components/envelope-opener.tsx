@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useCoupleOrder } from '@/lib/couple-order';
 
 interface EnvelopeOpenerProps {
   onEnvelopeOpen: () => void;
@@ -75,6 +76,7 @@ function SatinSwirl({ className }: { className: string }) {
 }
 
 export function EnvelopeOpener({ onEnvelopeOpen }: EnvelopeOpenerProps) {
+  const { first, second } = useCoupleOrder();
   const [isOpen, setIsOpen] = useState(false);
   const [showContent, setShowContent] = useState(false);
 
@@ -172,9 +174,9 @@ export function EnvelopeOpener({ onEnvelopeOpen }: EnvelopeOpenerProps) {
               </div>
 
               <h1 className={`font-script px-2 text-[2.6rem] leading-[1.3] sm:text-7xl md:text-8xl ${GOLD_TEXT} [-webkit-text-stroke:1.1px_#93641f] drop-shadow-[0_3px_3px_rgba(110,70,20,0.3)]`}>
-                Vishmitha{' '}
+                {first}{' '}
                 <span className="font-[Georgia,'Times_New_Roman',serif] italic text-[0.8em] [-webkit-text-stroke:0.6px_#93641f]">&amp;</span>{' '}
-                Binuri
+                {second}
               </h1>
 
               <div className="mt-1 md:mt-2">
@@ -210,7 +212,7 @@ export function EnvelopeOpener({ onEnvelopeOpen }: EnvelopeOpenerProps) {
                 >
                   <img
                     src="/envelope-rose-gold.png"
-                    alt="Vishmitha & Binuri wedding envelope"
+                    alt={`${first} & ${second} wedding envelope`}
                     className="h-auto w-[min(92vw,540px)] drop-shadow-[0_25px_40px_rgba(120,70,60,0.28)]"
                   />
                 </motion.div>

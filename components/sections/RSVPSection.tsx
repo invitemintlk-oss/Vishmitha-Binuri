@@ -5,8 +5,15 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Send, Heart, Mail, User, Users, Coffee, Sparkles } from 'lucide-react';
 import { submitToGoogleSheets } from '@/lib/googleSheets';
+import { useCoupleOrder } from '@/lib/couple-order';
+
+// RSVP contacts, groom first then bride.
+const GROOM_PHONE = { tel: '+94714779960', label: '071 477 9960' };
+const BRIDE_PHONE = { tel: '+94714442833', label: '071 444 2833' };
 
 export default function RSVPSection({ guestName }: { guestName?: string }) {
+  const { first, second, order, side } = useCoupleOrder();
+  const phones = order(GROOM_PHONE, BRIDE_PHONE);
   const { ref, inView } = useInView({ threshold: 0.15, triggerOnce: true });
   const [formData, setFormData] = useState({
     name: guestName || '',
@@ -41,12 +48,14 @@ export default function RSVPSection({ guestName }: { guestName?: string }) {
         formType: 'rsvp',
         name: formData.name,
         attending: formData.attending,
+        side,
+        invitationName: guestName || '',
       });
 
       setSubmitted(true);
       setTimeout(() => {
         setSubmitted(false);
-        setFormData({ name: '', attending: 'yes' });
+        setFormData({ name: guestName || '', attending: 'yes' });
       }, 4000);
     } catch (error) {
       setSubmitError('Unable to submit right now. Please try again.');
@@ -140,8 +149,8 @@ export default function RSVPSection({ guestName }: { guestName?: string }) {
             </span>
           </h2>
           <p className="mx-auto mt-8 max-w-lg text-lg text-[#5a4244] leading-relaxed">
-            Kindly RSVP: <a href="tel:+94714779960" className="hover:underline">071 477 9960</a> / <a href="tel:+94714442833" className="hover:underline">071 444 2833</a> <br />
-            <span className="font-bold text-[#bf7752]">Vishmitha | Binuri</span>
+            Kindly RSVP: <a href={`tel:${phones[0].tel}`} className="hover:underline">{phones[0].label}</a> / <a href={`tel:${phones[1].tel}`} className="hover:underline">{phones[1].label}</a> <br />
+            <span className="font-bold text-[#bf7752]">{first} | {second}</span>
           </p>
         </motion.div>
 

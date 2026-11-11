@@ -2,12 +2,14 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
+import { useCoupleOrder } from '@/lib/couple-order';
 
 interface IntroVideoProps {
   onFinish: () => void;
 }
 
 export default function IntroVideo({ onFinish }: IntroVideoProps) {
+  const { first, second } = useCoupleOrder();
   const videoRef = useRef<HTMLVideoElement>(null);
   const [leaving, setLeaving] = useState(false);
 
@@ -65,7 +67,7 @@ export default function IntroVideo({ onFinish }: IntroVideoProps) {
           transition={{ duration: 1.2, delay: 1.2 }}
           className="mt-3 font-script text-5xl text-white drop-shadow-[0_4px_12px_rgba(0,0,0,0.6)] sm:text-7xl"
         >
-          Vishmitha <span className="text-[#ecd5b0]">&amp;</span> Binuri
+          {first} <span className="text-[#ecd5b0]">&amp;</span> {second}
         </motion.h2>
       </div>
 

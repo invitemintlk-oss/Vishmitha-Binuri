@@ -16,6 +16,8 @@ import BlessingsSection from '@/components/sections/BlessingsSection';
 import RSVPSection from '@/components/sections/RSVPSection';
 import FooterSection from '@/components/sections/FooterSection';
 import MusicPlayer from '@/components/MusicPlayer';
+import { CoupleOrderProvider } from '@/lib/couple-order';
+import { parseSide } from '@/lib/guest';
 
 export default function InvitationPage({ guestOverride }: { guestOverride?: string }) {
   const [stage, setStage] = useState<'envelope' | 'intro' | 'site'>('envelope');
@@ -26,6 +28,8 @@ export default function InvitationPage({ guestOverride }: { guestOverride?: stri
   // Path links (/{displayName}) take priority; old ?t=&to= links still work.
   const personalizedName =
     guestOverride || (guestName ? `${guestTitle ? guestTitle + ' ' : ''}${guestName}` : '');
+  // ?s=bride -> bride's name and details first; default is groom first.
+  const side = parseSide(searchParams.get('s'));
 
   useEffect(() => {
     const html = document.documentElement;
@@ -33,6 +37,7 @@ export default function InvitationPage({ guestOverride }: { guestOverride?: stri
   }, []);
 
   return (
+    <CoupleOrderProvider side={side}>
     <div className="relative w-full overflow-x-hidden bg-background">
       {/* Persistent floating music player */}
       <MusicPlayer />
@@ -56,11 +61,12 @@ export default function InvitationPage({ guestOverride }: { guestOverride?: stri
           <VenueLocation />
           <DressCode />
           <SeatingSection />
-          <BlessingsSection />
+          <BlessingsSection guestName={personalizedName} />
           <RSVPSection guestName={personalizedName} />
           <FooterSection />
         </>
       )}
     </div>
+    </CoupleOrderProvider>
   );
 }

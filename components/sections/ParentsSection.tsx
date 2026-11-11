@@ -3,13 +3,14 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Heart } from 'lucide-react';
+import { useCoupleOrder } from '@/lib/couple-order';
 
 interface ParentsSectionProps {
   /** Guest name from the admin-generated link (?t=Title&to=Name) */
   guestName?: string;
 }
 
-const couple = [
+const [groom, bride] = [
   {
     name: 'Vishmitha',
     relation: 'Son of',
@@ -24,6 +25,7 @@ const couple = [
 
 export default function ParentsSection({ guestName }: ParentsSectionProps) {
   const { ref, inView } = useInView({ threshold: 0.1, triggerOnce: true });
+  const couple = useCoupleOrder().order(groom, bride);
 
   return (
     <section

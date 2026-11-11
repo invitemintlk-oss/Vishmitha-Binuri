@@ -1,10 +1,11 @@
 'use client';
 
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Heart, PenLine, Send, Stars, UserRound, Sparkles, Quote } from 'lucide-react';
 import { submitToGoogleSheets } from '@/lib/googleSheets';
+import { useCoupleOrder } from '@/lib/couple-order';
 
 interface Blessing {
   id: string;
@@ -15,12 +16,18 @@ interface Blessing {
 
 const initialBlessings: Blessing[] = [];
 
-export default function BlessingsSection() {
+export default function BlessingsSection({ guestName }: { guestName?: string }) {
   const { ref, inView } = useInView({ threshold: 0.15, triggerOnce: true });
+  const { side } = useCoupleOrder();
 
   const [blessings, setBlessings] = useState<Blessing[]>(initialBlessings);
   const [newBlessing, setNewBlessing] = useState('');
-  const [visitorName, setVisitorName] = useState('');
+  // Prefilled with the guest's name + prefix from the invitation link (e.g. "Dr. Perera").
+  const [visitorName, setVisitorName] = useState(guestName || '');
+
+  useEffect(() => {
+    if (guestName) setVisitorName(guestName);
+  }, [guestName]);
   const [submitted, setSubmitted] = useState(false);
   const [isHoveringSend, setIsHoveringSend] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -50,6 +57,8 @@ export default function BlessingsSection() {
           formType: 'wish',
           name: visitorName.trim(),
           message: newBlessing.trim(),
+          side,
+          invitationName: guestName || '',
         });
 
         const blessing: Blessing = {
@@ -61,7 +70,7 @@ export default function BlessingsSection() {
 
         setBlessings([blessing, ...blessings]);
         setNewBlessing('');
-        setVisitorName('');
+        setVisitorName(guestName || '');
         setSubmitted(true);
 
         setTimeout(() => setSubmitted(false), 3000);

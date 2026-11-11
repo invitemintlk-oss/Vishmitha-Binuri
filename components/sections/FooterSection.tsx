@@ -2,8 +2,10 @@
 
 import { motion } from 'framer-motion';
 import { Heart, Sparkles } from 'lucide-react';
+import { useCoupleOrder } from '@/lib/couple-order';
 
 export default function FooterSection() {
+  const { first, second } = useCoupleOrder();
   return (
     <footer className="relative overflow-hidden bg-[linear-gradient(180deg,#4a3034_0%,#2e1e20_100%)] py-20 text-white text-center border-t border-white/5">
       {/* Subtle Ornaments */}
@@ -23,7 +25,7 @@ export default function FooterSection() {
           </div>
 
           <h2 className="font-serif text-4xl md:text-6xl text-white font-light tracking-tight mb-8">
-            VISHMITHA <span className="text-[#ecd5b0] italic font-normal">&amp;</span> BINURI
+            {first.toUpperCase()} <span className="text-[#ecd5b0] italic font-normal">&amp;</span> {second.toUpperCase()}
           </h2>
 
           <div className="flex flex-col items-center gap-6 text-xs sm:text-sm uppercase tracking-[0.3em] font-semibold text-white/90">
@@ -36,7 +38,7 @@ export default function FooterSection() {
             </div>
 
             <div className="mt-10 space-y-5 text-white/90 font-medium">
-              <p className="text-xs sm:text-sm tracking-[0.3em]">&copy; {new Date().getFullYear()} VISHMITHA &amp; BINURI</p>
+              <p className="text-xs sm:text-sm tracking-[0.3em]">&copy; {new Date().getFullYear()} {first.toUpperCase()} &amp; {second.toUpperCase()}</p>
 
               <p className="text-[11px] sm:text-xs tracking-[0.15em] leading-relaxed text-white/85">
                 DESIGN AND CREATED BY <span className="font-bold text-[#ecd5b0]">INVITEMINT</span>

@@ -3,8 +3,10 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Cross, Heart, Sparkles } from 'lucide-react';
+import { useCoupleOrder } from '@/lib/couple-order';
 
 export default function HeroSection() {
+  const { first, second } = useCoupleOrder();
   const { ref, inView } = useInView({ threshold: 0.05, triggerOnce: true });
 
   return (
@@ -45,9 +47,9 @@ export default function HeroSection() {
           transition={{ duration: 1.2, delay: 0.1 }}
           className="font-script text-7xl sm:text-8xl md:text-9xl leading-[1.05] bg-gradient-to-b from-[#f3e3c0] via-[#d8b78c] to-[#a8823a] bg-clip-text text-transparent drop-shadow-[0_4px_6px_rgba(0,0,0,0.35)] px-4"
         >
-          Vishmitha
+          {first}
           <span className="block text-3xl sm:text-4xl md:text-5xl text-white/85 my-1 sm:my-2" style={{ WebkitTextFillColor: 'rgba(255,255,255,0.85)' }}>and</span>
-          Binuri
+          {second}
         </motion.h1>
 
         <motion.p

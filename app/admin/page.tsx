@@ -7,20 +7,25 @@ import {
   COUPLE,
   PREFIXES,
   type Prefix,
+  type Side,
+  coupleNames,
   buildInviteLink,
   buildInviteMessage,
   formatDisplayName,
 } from '@/lib/guest';
 
 export default function AdminPage() {
+  const [side, setSide] = useState<Side>('groom');
+  const [linkSide, setLinkSide] = useState<Side>('groom');
   const [prefix, setPrefix] = useState<Prefix>('Mr.');
+  const [customPrefix, setCustomPrefix] = useState('');
   const [name, setName] = useState('');
   const [displayName, setDisplayName] = useState('');
   const [link, setLink] = useState('');
   const [toast, setToast] = useState('');
 
-  const previewName = formatDisplayName(prefix, name);
-  const message = link ? buildInviteMessage(displayName, link) : '';
+  const previewName = formatDisplayName(prefix, name, customPrefix);
+  const message = link ? buildInviteMessage(displayName, link, linkSide) : '';
 
   useEffect(() => {
     if (!toast) return;
@@ -31,7 +36,8 @@ export default function AdminPage() {
   const generate = () => {
     if (!previewName) return;
     setDisplayName(previewName);
-    setLink(buildInviteLink(window.location.origin, previewName));
+    setLinkSide(side);
+    setLink(buildInviteLink(window.location.origin, previewName, side));
   };
 
   const copy = async (text: string, label: string) => {
@@ -62,21 +68,62 @@ export default function AdminPage() {
             }}
             className="space-y-6"
           >
+            <div>
+              <span className="mb-2 block text-xs font-bold uppercase tracking-[0.2em] text-secondary">Invited By</span>
+              <div className="grid grid-cols-2 gap-3">
+                {([
+                  ['groom', "Groom's side", COUPLE.groom],
+                  ['bride', "Bride's side", COUPLE.bride],
+                ] as const).map(([value, label, person]) => (
+                  <button
+                    key={value}
+                    type="button"
+                    onClick={() => setSide(value)}
+                    aria-pressed={side === value}
+                    className={`rounded-xl border px-4 py-3 text-sm font-semibold transition ${
+                      side === value
+                        ? 'border-primary bg-primary text-white shadow-md'
+                        : 'border-primary/30 bg-white text-foreground hover:bg-[#fbf3f1]'
+                    }`}
+                  >
+                    {label}
+                    <span className="block text-xs font-normal opacity-80">{person}</span>
+                  </button>
+                ))}
+              </div>
+              <p className="mt-2 text-xs text-foreground/60">
+                Invitation will show <strong>{coupleNames(side).join(' & ')}</strong>, with{' '}
+                {side === 'bride' ? "the bride's" : "the groom's"} name and parents first.
+              </p>
+            </div>
+
             <div className="grid gap-5 sm:grid-cols-[180px_1fr]">
-              <label className="block">
-                <span className="mb-2 block text-xs font-bold uppercase tracking-[0.2em] text-secondary">Prefix</span>
-                <select
-                  value={prefix}
-                  onChange={(e) => setPrefix(e.target.value as Prefix)}
-                  className="w-full rounded-xl border border-primary/30 bg-white px-4 py-3 text-base outline-none focus:border-primary focus:ring-2 focus:ring-primary/20"
-                >
-                  {PREFIXES.map((p) => (
-                    <option key={p} value={p}>
-                      {p}
-                    </option>
-                  ))}
-                </select>
-              </label>
+              <div className="space-y-3">
+                <label className="block">
+                  <span className="mb-2 block text-xs font-bold uppercase tracking-[0.2em] text-secondary">Prefix</span>
+                  <select
+                    value={prefix}
+                    onChange={(e) => setPrefix(e.target.value as Prefix)}
+                    className="w-full rounded-xl border border-primary/30 bg-white px-4 py-3 text-base outline-none focus:border-primary focus:ring-2 focus:ring-primary/20"
+                  >
+                    {PREFIXES.map((p) => (
+                      <option key={p} value={p}>
+                        {p === 'Custom' ? 'Custom (type…)' : p}
+                      </option>
+                    ))}
+                  </select>
+                </label>
+                {prefix === 'Custom' && (
+                  <input
+                    value={customPrefix}
+                    onChange={(e) => setCustomPrefix(e.target.value)}
+                    placeholder="e.g. Prof., Rev."
+                    aria-label="Custom prefix"
+                    autoFocus
+                    className="w-full rounded-xl border border-primary/30 bg-white px-4 py-3 text-base outline-none focus:border-primary focus:ring-2 focus:ring-primary/20"
+                  />
+                )}
+              </div>
 
               <label className="block">
                 <span className="mb-2 block text-xs font-bold uppercase tracking-[0.2em] text-secondary">Guest Name</span>
