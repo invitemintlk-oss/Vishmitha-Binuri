@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const SONG_SRC = '/cant-help-falling-in-love.mp3';
+const SONG_SRC = '/bg-music.mp3';
 
 export default function MusicPlayer() {
     const audioRef = useRef<HTMLAudioElement | null>(null);
@@ -15,7 +15,7 @@ export default function MusicPlayer() {
         setMounted(true);
         const audio = new Audio(SONG_SRC);
         audio.loop = true;
-        audio.volume = 0.4;
+        audio.volume = 0.3;
         audioRef.current = audio;
 
         // Attempt autoplay

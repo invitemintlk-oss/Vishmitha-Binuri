@@ -85,7 +85,18 @@ export default function VenueLocation() {
               <MapPin className="h-10 w-10 text-white" />
             </div>
 
-            <p className="mt-6 text-[11px] font-bold uppercase tracking-[0.4em] text-primary mb-3">Kings Court</p>
+            <div className="mt-8 mb-8 overflow-hidden rounded-2xl border-4 border-white shadow-[0_15px_40px_rgba(90,60,40,0.18)]">
+              <img
+                src="/venue-cinnamon-lakeside.jpeg"
+                alt="Cinnamon Lakeside Hotel, Colombo"
+                width={1400}
+                height={929}
+                loading="lazy"
+                className="block h-auto w-full transition-transform duration-700 group-hover:scale-[1.03]"
+              />
+            </div>
+
+            <p className="text-[11px] font-bold uppercase tracking-[0.4em] text-primary mb-3">Kings Court</p>
             <h3 className="font-serif text-4xl md:text-5xl text-foreground font-semibold mb-4 uppercase">CINNAMON LAKESIDE HOTEL</h3>
             <p className="text-sm text-foreground/80 mb-10 uppercase tracking-[0.2em] leading-relaxed max-w-sm mx-auto">115 Sir Chittampalam A. Gardiner Mawatha, <br /> Colombo 02, Sri Lanka</p>
 

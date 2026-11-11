@@ -11,7 +11,7 @@ const brushMask = `url("data:image/svg+xml,${encodeURIComponent(
       <feDisplacementMap in='SourceGraphic' scale='38'/>
       <feGaussianBlur stdDeviation='1.2'/>
     </filter>
-    <rect x='34' y='30' width='332' height='260' rx='40' fill='white' filter='url(#b)'/>
+    <rect x='30' y='16' width='340' height='288' rx='40' fill='white' filter='url(#b)'/>
   </svg>`
 )}")`;
 
@@ -25,9 +25,10 @@ const phases = [
   },
   {
     img: '/pre/story-2.jpeg',
+    aspect: 'aspect-[4/3]',
     title: ['The Journey', 'Brought Us Here'],
     sub: 'Side by side',
-    position: 'object-[center_30%]',
+    position: 'object-top',
     gray: false,
   },
   {
@@ -91,7 +92,7 @@ export default function OurStory() {
                   <div className="absolute inset-0 scale-110 rounded-full bg-[#d8a8a4]/60 blur-2xl" />
                 )}
                 <div
-                  className="relative aspect-[5/4] w-full"
+                  className={`relative w-full ${(p as { aspect?: string }).aspect ?? 'aspect-[5/4]'}`}
                   style={{
                     WebkitMaskImage: brushMask,
                     maskImage: brushMask,
